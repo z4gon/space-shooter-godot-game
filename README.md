@@ -7,4 +7,9 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
 
 ![Picture](./docs/screencapture.jpg)
 
+## Project Setup
+
+- Set Window Height/Width, Test Height/Width and Stretch Mode to 2D.
+- Turn on Smart Snapping to 16px and show the Grid.
+
 ## Nodes Used
