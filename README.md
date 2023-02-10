@@ -54,6 +54,8 @@ func shoot():
 ```
 
 ```py
+# Scripts/Utils.gd
+
 static func instantiate(context: Node, resource: Resource, position: Vector2):
 	var instance = resource.instance()						# instantiate the scene
 	var root_node = context.get_tree().current_scene 		# get the root node of the main scene
@@ -123,6 +125,8 @@ onready var spawn_points: Array = Utils.load_nodes(self, spawn_points_node_paths
 ```
 
 ```py
+# Scripts/Utils.gd
+
 static func load_nodes(context: Node, node_paths: Array) -> Array:
 	var nodes = []
 	for node_path in node_paths:
