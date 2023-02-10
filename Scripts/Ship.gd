@@ -6,6 +6,8 @@ const Utils = preload("res://Scripts/Utils.gd")
 const ExplosionVFX : Resource = preload("res://Scenes/ExplosionVFX.tscn")
 const Bullet : Resource = preload("res://Scenes/Bullet.tscn")
 
+signal player_died
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	process_movement(delta)
@@ -31,6 +33,7 @@ func shoot():
 
 # on collision with enemies
 func _on_Ship_area_entered(enemy: Area2D):
+	emit_signal("player_died")
 	queue_free()
 
 func _exit_tree():
