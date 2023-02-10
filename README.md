@@ -13,3 +13,15 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
 - Turn on Smart Snapping to 16px and show the Grid.
 
 ## Nodes Used
+
+- Node
+  - Node2D
+    - Area2D
+    - Sprite
+    - ColliderPolygon2D
+
+## Scenes
+
+- World
+- Ship
+- Enemy
