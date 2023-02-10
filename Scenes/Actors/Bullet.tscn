@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Bullet.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Actors/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Bullet.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/Shoot.wav" type="AudioStream" id=3]
 

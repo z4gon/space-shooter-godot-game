@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/GameOverMenu.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Root/GameOverMenu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/PixelFontSmall.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/VFX/StarParticles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/PixelFontLarge.tres" type="DynamicFont" id=4]
