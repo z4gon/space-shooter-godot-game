@@ -28,6 +28,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
 	- [Stars Particles](#stars-particles)
 	- [Audio](#audio)
 	- [Hit VFX](#hit-vfx)
+	- [Font](#font)
   
 ## Screenshots
 
@@ -300,3 +301,8 @@ func _on_Bullet_area_entered(enemy: Area2D):
 	Utils.instantiate(self, HitVFX, global_position)
 	queue_free()
 ```
+
+## Font
+
+- Create a `DynamicFont` `Resource` and make it use the `.ttf` font we imported.
+- In the `Label`, set the font to our new resource and adjust the size.
