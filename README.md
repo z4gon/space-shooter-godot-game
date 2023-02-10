@@ -25,6 +25,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
 	- [Score](#score)
 		- [Custom Signal](#custom-signal)
 		- [Setters \& Getters](#setters--getters)
+	- [Stars Particles](#stars-particles)
   
 ## Screenshots
 
@@ -45,6 +46,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
     - RigidBody2D
     - VisibilityNotifier2D
     - Position2D
+    - Particles2D
   - Label
   - Timer
 
@@ -246,3 +248,19 @@ func set_score(value):
 	score = value
 	score_label.text = "Score = %s" % score
 ```
+
+## Stars Particles
+
+- Using Godot's Particle System, define a `Particles2D` node in the World scene.
+- Add a sub resource `Particles Material`
+- Set the properties:
+  - Lifetime = 7
+  - Amount = 200
+  - Preprocess = 7 (to fill the screen with stars on start)
+  - Emission Type = Box
+    - Box Extents y = 90 (whole window height)
+  - Gravity = 0
+  - Velocity = -100
+    - Velocity Random = 0.5
+  - Direction x = 1
+    - Spread = 0
