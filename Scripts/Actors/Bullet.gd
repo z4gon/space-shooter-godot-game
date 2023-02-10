@@ -18,6 +18,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 # on collision with enemies
-func _on_Bullet_area_entered(enemy: Area2D):
+func _on_Bullet_area_entered(_enemy: Area2D):
 	Utils.instantiate(self, HitVFX, global_position)
 	queue_free()

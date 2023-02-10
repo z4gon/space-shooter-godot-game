@@ -32,7 +32,7 @@ func shoot():
 	Utils.instantiate(self, Bullet, position)
 
 # on collision with enemies
-func _on_Ship_area_entered(enemy: Area2D):
+func _on_Ship_area_entered(_enemy: Area2D):
 	emit_signal("player_died")
 	queue_free()
 
