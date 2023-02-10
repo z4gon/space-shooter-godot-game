@@ -32,6 +32,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
 	- [Changing Scenes](#changing-scenes)
 	- [Autoload Singletons](#autoload-singletons)
 	- [Timers \& Yield](#timers--yield)
+	- [Save System](#save-system)
   
 ## Screenshots
 
@@ -327,4 +328,55 @@ func _on_Ship_player_died():
 	var timer = get_tree().create_timer(1) # after 1 sec
 	yield(timer, "timeout")
 	get_tree().change_scene("res://Scenes/Root/GameOverMenu.tscn")
+```
+
+## Save System
+
+- Create an `autoload` `Singleton` to manage reading and writing to the save file.
+- In the `World` scene, react to the player dying and update the highscore.
+- In the `GameOver` scene, show the highscore.
+- Use the `user://` folder to save to the platform specific folder for user data.
+
+```py
+var SAVE_DATA_PATH = "user://save_data.json"
+
+var default_save_data = {
+	highscore = 0
+}
+
+func save_data_to_file(save_data):
+	var file = File.new()
+	
+	file.open(SAVE_DATA_PATH, File.WRITE)
+	file.store_line(to_json(save_data))
+	file.close()
+
+func load_data_from_file():
+	var file = File.new()
+	
+	if file.file_exists(SAVE_DATA_PATH):
+		file.open(SAVE_DATA_PATH, File.READ)
+		var data = parse_json(file.get_as_text())
+		file.close()
+		
+		return data
+	else:
+		return default_save_data
+```
+
+```py
+func save_highscore():
+	var data = SaveSystem.load_data_from_file()
+	if score > data.highscore:
+		data.highscore = score
+		SaveSystem.save_data_to_file(data)
+
+func _on_Ship_player_died():
+	save_highscore()
+```
+
+```py
+func _ready():
+	var data = SaveSystem.load_data_from_file()
+	highscore_label.text = "Highscore: %s" % data.highscore
 ```
