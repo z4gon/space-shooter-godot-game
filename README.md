@@ -36,7 +36,9 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
   
 ## Screenshots
 
-![Picture](./docs/screencapture.jpg)
+![Picture](./docs/1.jpg)
+![Picture](./docs/2.jpg)
+![Picture](./docs/3.jpg)
 
 ## Project Setup
 
