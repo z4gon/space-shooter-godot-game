@@ -20,6 +20,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
     - Sprite
     - ColliderPolygon2D
     - RigidBody2D
+    - VisibilityNotifier2D
 
 ## Scenes
 
@@ -86,3 +87,8 @@ func _on_Ship_area_entered(enemyArea: Area2D):
 	enemyArea.queue_free()
 	queue_free()
 ```
+
+### Visibility Notifiers
+
+- Add `VisibiliyNotifier2D` nodes to the Enemies and Bullets.
+- Connect the signal `screen_exited` to execute `queue_free`
