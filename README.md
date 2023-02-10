@@ -26,6 +26,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
 		- [Custom Signal](#custom-signal)
 		- [Setters \& Getters](#setters--getters)
 	- [Stars Particles](#stars-particles)
+	- [Audio](#audio)
   
 ## Screenshots
 
@@ -49,6 +50,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
     - Particles2D
   - Label
   - Timer
+  - AudioStreamPlayer
 
 ## Scenes
 
@@ -264,3 +266,7 @@ func set_score(value):
     - Velocity Random = 0.5
   - Direction x = 1
     - Spread = 0
+
+## Audio
+
+- Use an `AudioStreamPlayer` with `autoplay`.
