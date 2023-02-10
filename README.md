@@ -21,6 +21,8 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
     - ColliderPolygon2D
     - RigidBody2D
     - VisibilityNotifier2D
+    - Position2D
+  - Timer
 
 ## Scenes
 
@@ -140,6 +142,13 @@ func get_spawn_position() -> Vector2:
 ```
 
 ### Spawn the Enemy
+
+- Use a `Timer` Node and connect the `timeout()` signal to the Enemy Spawner.
+
+```py
+func _on_Timer_timeout():
+	spawn_enemy()
+```
 
 ```py
 func spawn_enemy():
