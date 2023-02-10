@@ -30,6 +30,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
 	- [Hit VFX](#hit-vfx)
 	- [Font](#font)
 	- [Changing Scenes](#changing-scenes)
+	- [Autoload Singletons](#autoload-singletons)
   
 ## Screenshots
 
@@ -311,3 +312,7 @@ func _on_Bullet_area_entered(enemy: Area2D):
 ## Changing Scenes
 
 - Navigate to a new scene with `get_tree().change_scene("res://Scenes/World.tscn")`
+- 
+## Autoload Singletons
+
+- Persisting elements across scenes changing, use `Project Settings > AutoLoad` and load the `Music.tsc` which will play the music across scenes.

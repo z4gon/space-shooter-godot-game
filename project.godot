@@ -14,6 +14,10 @@ config/name="space-shooter-godot-game"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Music="*res://Scenes/Music.tscn"
+
 [display]
 
 window/size/width=320
