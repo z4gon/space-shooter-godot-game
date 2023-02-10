@@ -15,14 +15,15 @@ orbit_velocity_random = 0.0
 [node name="HitVFX" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
-volume_db = -24.0
+volume_db = -15.0
 autoplay = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
 amount = 6
 lifetime = 0.25
+one_shot = true
 explosiveness = 1.0
 process_material = SubResource( 1 )
 

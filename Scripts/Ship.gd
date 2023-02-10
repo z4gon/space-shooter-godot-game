@@ -3,8 +3,8 @@ extends Area2D
 export(int) var SPEED = 100
 
 const Utils = preload("res://Scripts/Utils.gd")
-var ExplosionVFX : Resource = preload("res://Scenes/ExplosionVFX.tscn")
-var Bullet : Resource = preload("res://Scenes/Bullet.tscn")
+const ExplosionVFX : Resource = preload("res://Scenes/ExplosionVFX.tscn")
+const Bullet : Resource = preload("res://Scenes/Bullet.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -34,8 +34,7 @@ func shoot():
 	Utils.instantiate(self, Bullet, position)
 
 # on collision with enemies
-func _on_Ship_area_entered(enemy_area: Area2D):
-	enemy_area.queue_free()
+func _on_Ship_area_entered(enemy: Area2D):
 	queue_free()
 
 func _exit_tree():

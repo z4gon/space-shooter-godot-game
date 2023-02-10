@@ -27,6 +27,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
 		- [Setters \& Getters](#setters--getters)
 	- [Stars Particles](#stars-particles)
 	- [Audio](#audio)
+	- [Hit VFX](#hit-vfx)
   
 ## Screenshots
 
@@ -270,3 +271,9 @@ func set_score(value):
 ## Audio
 
 - Use an `AudioStreamPlayer` with `autoplay`.
+- Or get a reference to the audio stream player like this `onready var shoot_sound = $ShootSound` and then play it `shoot_sound.play()`
+
+## Hit VFX
+
+- Use an `Particles2D` node as `one_shot`, configure the properties of the particles to generate a mini explosion.
+- Add a `hit` sound.
