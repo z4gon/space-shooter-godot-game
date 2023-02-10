@@ -8,8 +8,11 @@ export(int) var HP = 3
 
 var currentHP = 0
 
+signal killed_by_player
+
 func _ready():
 	currentHP = HP
+	connect_signals()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,6 +32,7 @@ func _on_Enemy_body_entered(bullet_node: Node):
 	
 	currentHP -= 1
 	if currentHP == 0:
+		emit_signal("killed_by_player")
 		queue_free()
 
 func _on_VisibilityNotifier2D_screen_exited():
@@ -36,3 +40,8 @@ func _on_VisibilityNotifier2D_screen_exited():
 	
 func _exit_tree():
 	Utils.instantiate(self, ExplosionVFX, global_position)
+	
+func connect_signals():
+	var root_node = get_tree().current_scene
+	if root_node.is_in_group("World"):
+		connect("killed_by_player", root_node, "_on_Enemy_killed_by_player")

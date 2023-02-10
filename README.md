@@ -22,6 +22,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
     - RigidBody2D
     - VisibilityNotifier2D
     - Position2D
+  - Label
   - Timer
 
 ## Scenes
@@ -178,4 +179,43 @@ var ExplosionVFX : Resource = preload("res://Scenes/ExplosionVFX.tscn")
 
 func _exit_tree():
 	Utils.instantiate(self, ExplosionVFX, global_position)
+```
+
+## Score
+
+- Add a `Label` node to the world scene.
+
+### Custom Signal
+
+- Make the `Enemy` fire a custom signal whenever it is killed by the player.
+- Make the `World` scene's root node to be in the `Group` called "World".
+- Connect the signal of the enemy to the root node dynamically on ready.
+
+```py
+signal killed_by_player
+
+func _ready():
+	connect_signals()
+
+func connect_signals():
+	var root_node = get_tree().current_scene
+	if root_node.is_in_group("World"):
+		connect("killed_by_player", root_node, "_on_Enemy_killed_by_player")
+```
+
+### Setters & Getters
+
+- Define a `setter` in `World` that updates the score and the label.
+
+```py
+onready var score_label: Label = $ScoreLabel
+
+var score = 0 setget set_score
+
+func _on_Enemy_killed_by_player():
+	self.score += 10
+
+func set_score(value):
+	score = value
+	score_label.text = "Score = %s" % score
 ```
