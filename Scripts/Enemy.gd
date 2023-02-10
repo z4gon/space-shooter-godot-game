@@ -1,7 +1,7 @@
 extends Area2D
 
 const Utils = preload("res://Scripts/Utils.gd")
-const ExplosionVFX : Resource = preload("res://Scenes/ExplosionVFX.tscn")
+const ExplosionVFX : Resource = preload("res://Scenes/VFX/ExplosionVFX.tscn")
 
 export(int) var SPEED = 100
 export(int) var HP = 3

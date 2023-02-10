@@ -1,7 +1,7 @@
 extends Area2D
 
 const Utils = preload("res://Scripts/Utils.gd")
-const HitVFX : Resource = preload("res://Scenes/HitVFX.tscn")
+const HitVFX : Resource = preload("res://Scenes/VFX/HitVFX.tscn")
 
 onready var shoot_sound = $ShootSound
 

@@ -3,8 +3,8 @@ extends Area2D
 export(int) var SPEED = 100
 
 const Utils = preload("res://Scripts/Utils.gd")
-const ExplosionVFX : Resource = preload("res://Scenes/ExplosionVFX.tscn")
-const Bullet : Resource = preload("res://Scenes/Bullet.tscn")
+const ExplosionVFX : Resource = preload("res://Scenes/VFX/ExplosionVFX.tscn")
+const Bullet : Resource = preload("res://Scenes/Actors/Bullet.tscn")
 
 signal player_died
 

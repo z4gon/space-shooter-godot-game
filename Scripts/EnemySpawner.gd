@@ -1,7 +1,7 @@
 extends Node
 
 const Utils = preload("res://Scripts/Utils.gd")
-const Enemy : Resource = preload("res://Scenes/Enemy.tscn")
+const Enemy : Resource = preload("res://Scenes/Actors/Enemy.tscn")
 
 # the spawn points
 export(Array, NodePath) var spawn_points_node_paths = [] 
