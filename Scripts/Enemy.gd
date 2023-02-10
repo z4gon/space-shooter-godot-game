@@ -1,5 +1,8 @@
 extends Area2D
 
+const Utils = preload("res://Scripts/Utils.gd")
+var ExplosionVFX : Resource = preload("res://Scenes/ExplosionVFX.tscn")
+
 export(int) var SPEED = 100
 export(int) var HP = 3
 
@@ -30,3 +33,6 @@ func _on_Enemy_body_entered(bullet_node: Node):
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+	
+func _exit_tree():
+	Utils.instantiate(self, ExplosionVFX, global_position)

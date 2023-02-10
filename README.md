@@ -43,13 +43,21 @@ var Bullet : Resource = preload("res://Scenes/Bullet.tscn")
 - Set its position.
   
 ```py
+const Utils = preload("res://Scripts/Utils.gd")
+
 # FIXME: This is not ideal, an object pool should be used instead.
 func shoot():
-	var bullet = Bullet.instance()				# instantiate the scene
-	var root_node = get_tree().current_scene 	# get the root node of the main scene
-	root_node.add_child(bullet)					# add to the root node
-	bullet.global_position = global_position	# position in the same place as the ship
-	bullet.global_position.x += 10
+	var position = global_position
+	position.x += 10
+	Utils.instantiate(self, Bullet, position)
+```
+
+```py
+static func instantiate(context: Node, resource: Resource, position: Vector2):
+	var instance = resource.instance()						# instantiate the scene
+	var root_node = context.get_tree().current_scene 		# get the root node of the main scene
+	root_node.add_child(instance)							# add to the root node
+	instance.global_position = position						# position in the same place as the ship
 ```
 
 ## Collisions
@@ -152,8 +160,22 @@ func _on_Timer_timeout():
 
 ```py
 func spawn_enemy():
-	var enemy = Enemy.instance()						# instantiate the scene
-	var root_node = get_tree().current_scene 			# get the root node of the main scene
-	root_node.add_child(enemy)						# add to the root node
-	enemy.global_position = get_spawn_position()		# position in a random spawn point
+	Utils.instantiate(self, Enemy, get_spawn_position())
+```
+
+## Explosion
+
+- Using a `Sprite` and an `AnimationPlayer` define a new scene for the `Explosion`
+- In the animation, add a `Call Method Track` to call `queue_free()` when the animation ends.
+- Make the animation autoplay when the node enters the tree.
+
+### Ship and Enemies
+
+- When enemies and the ship die, we need to show the explosion.
+
+```py
+var ExplosionVFX : Resource = preload("res://Scenes/ExplosionVFX.tscn")
+
+func _exit_tree():
+	Utils.instantiate(self, ExplosionVFX, global_position)
 ```
