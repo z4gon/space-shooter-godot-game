@@ -27,13 +27,13 @@ func process_shooting():
 
 # FIXME: This is not ideal, an object pool should be used instead.
 func shoot():
-	var bullet = Bullet.instance()			# instantiate the scene
-	var rootNode = get_tree().current_scene 	# get the root node of the main scene
-	rootNode.add_child(bullet)				# add to the root node
-	bullet.global_position = global_position	# position in the same place as the ship
+	var bullet = Bullet.instance()				# instantiate the scene
+	var root_node = get_tree().current_scene 		# get the root node of the main scene
+	root_node.add_child(bullet)					# add to the root node
+	bullet.global_position = global_position		# position in the same place as the ship
 	bullet.global_position.x += 10
 
 # on collision with enemies
-func _on_Ship_area_entered(enemyArea: Area2D):
-	enemyArea.queue_free()
+func _on_Ship_area_entered(enemy_area: Area2D):
+	enemy_area.queue_free()
 	queue_free()

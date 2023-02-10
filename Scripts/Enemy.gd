@@ -21,8 +21,8 @@ func move(dx: float, dy: float):
 	position.y += dy
 
 # on collision with bullets
-func _on_Enemy_body_entered(bulletNode: Node):
-	bulletNode.queue_free()
+func _on_Enemy_body_entered(bullet_node: Node):
+	bullet_node.queue_free()
 	
 	currentHP -= 1
 	if currentHP == 0:
