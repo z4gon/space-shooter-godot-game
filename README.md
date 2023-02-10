@@ -91,4 +91,9 @@ func _on_Ship_area_entered(enemyArea: Area2D):
 ### Visibility Notifiers
 
 - Add `VisibiliyNotifier2D` nodes to the Enemies and Bullets.
-- Connect the signal `screen_exited` to execute `queue_free`
+- Connect the signal `screen_exited` to a function that executes `queue_free()`
+
+```py
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
+```

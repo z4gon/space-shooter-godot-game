@@ -27,3 +27,6 @@ func _on_Enemy_body_entered(bulletNode: Node):
 	currentHP -= 1
 	if currentHP == 0:
 		queue_free()
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
