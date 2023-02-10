@@ -29,6 +29,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
 	- [Audio](#audio)
 	- [Hit VFX](#hit-vfx)
 	- [Font](#font)
+	- [Changing Scenes](#changing-scenes)
   
 ## Screenshots
 
@@ -306,3 +307,7 @@ func _on_Bullet_area_entered(enemy: Area2D):
 
 - Create a `DynamicFont` `Resource` and make it use the `.ttf` font we imported.
 - In the `Label`, set the font to our new resource and adjust the size.
+
+## Changing Scenes
+
+- Navigate to a new scene with `get_tree().change_scene("res://Scenes/World.tscn")`
