@@ -14,4 +14,4 @@ func set_score(value):
 func _on_Ship_player_died():
 	var timer = get_tree().create_timer(1) # after 1 sec
 	yield(timer, "timeout")
-	get_tree().change_scene("res://Scenes/Root/GameOverMenu.tscn")
+	var _error = get_tree().change_scene("res://Scenes/Root/GameOverMenu.tscn")

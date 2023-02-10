@@ -41,4 +41,4 @@ func _on_VisibilityNotifier2D_screen_exited():
 func connect_signals():
 	var root_node = get_tree().current_scene
 	if root_node.is_in_group("World"):
-		connect("killed_by_player", root_node, "_on_Enemy_killed_by_player")
+		var _error = connect("killed_by_player", root_node, "_on_Enemy_killed_by_player")
