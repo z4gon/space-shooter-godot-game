@@ -32,3 +32,8 @@ func shoot():
 	rootNode.add_child(bullet)				# add to the root node
 	bullet.global_position = global_position	# position in the same place as the ship
 	bullet.global_position.x += 10
+
+# on collision with enemies
+func _on_Ship_area_entered(enemyArea: Area2D):
+	enemyArea.queue_free()
+	queue_free()
