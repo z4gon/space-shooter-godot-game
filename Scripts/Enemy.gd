@@ -18,7 +18,7 @@ func _process(delta):
 	var speed = SPEED * delta
 	position.x -= speed
 
-# on collision with bullets
+# on collision with bullets or player
 func _on_Enemy_area_entered(area: Area2D):
 	if area.is_in_group("Bullets"):
 		get_hit()

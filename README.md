@@ -108,23 +108,39 @@ static func instantiate(context: Node, resource: Resource, position: Vector2):
 ### Signals
 
 - Use signal `area_entered` to detect collision between the Ship and Enemies.
+- We could use `RigidBody2D` but we won't because:
+  - It's impossible to detect when areas run into the rigid body, we'd need to use rigid bodies for all actos.
+  - This is so simple that we don't need the overhead of physics calculations.
 
 ```py
-# on collision with bullets
-func _on_Enemy_body_entered(bullet_node: Node):
-	bullet_node.queue_free()
-	
+# on collision with bullets or player
+func _on_Enemy_area_entered(area: Area2D):
+	if area.is_in_group("Bullets"):
+		get_hit()
+	elif area.is_in_group("Player"):
+		killed()
+		
+func get_hit():
 	currentHP -= 1
 	if currentHP == 0:
-		queue_free()
+		emit_signal("killed_by_player")
+		killed()
+		
+func killed():
+	Utils.instantiate(self, ExplosionVFX, global_position)
+	queue_free()
 ```
-
-- Use signal `body_entered` to detect collisison between Enemies and Bullets.
 
 ```py
 # on collision with enemies
-func _on_Ship_area_entered(enemy_area: Area2D):
-	enemy_area.queue_free()
+func _on_Bullet_area_entered(enemy: Area2D):
+	Utils.instantiate(self, HitVFX, global_position)
+	queue_free()
+```
+
+```py
+# on collision with enemies
+func _on_Ship_area_entered(enemy: Area2D):
 	queue_free()
 ```
 
@@ -277,3 +293,10 @@ func set_score(value):
 
 - Use an `Particles2D` node as `one_shot`, configure the properties of the particles to generate a mini explosion.
 - Add a `hit` sound.
+
+```py
+# on collision with enemies
+func _on_Bullet_area_entered(enemy: Area2D):
+	Utils.instantiate(self, HitVFX, global_position)
+	queue_free()
+```
