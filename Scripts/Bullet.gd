@@ -1,20 +1,9 @@
 extends RigidBody2D
 
+onready var shoot_sound = $ShootSound
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	shoot_sound.play()
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
