@@ -8,7 +8,8 @@ extents = Vector2( 2, 2 )
 
 [node name="Bullet" type="RigidBody2D"]
 gravity_scale = 0.0
-linear_velocity = Vector2( 200, 0 )
+linear_velocity = Vector2( 450, 0 )
+linear_damp = 0.0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
