@@ -19,6 +19,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
     - Area2D
     - Sprite
     - ColliderPolygon2D
+    - RigidBody2D
 
 ## Scenes
 
