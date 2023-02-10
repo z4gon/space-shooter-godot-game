@@ -3,6 +3,29 @@ Godot 3.5.x
 
 A basic game made in Godot, following the course: https://heartbeast-gamedev-school.teachable.com/p/1-bit-godot-course
 
+## Table of Contents
+- [Space Shooter Game](#space-shooter-game)
+	- [Table of Contents](#table-of-contents)
+	- [Screenshots](#screenshots)
+	- [Project Setup](#project-setup)
+	- [Nodes Used](#nodes-used)
+	- [Scenes](#scenes)
+	- [Shoot Bullets: Instancing](#shoot-bullets-instancing)
+	- [Collisions](#collisions)
+		- [Layers](#layers)
+		- [Masks](#masks)
+		- [Signals](#signals)
+	- [Visibility Notifiers](#visibility-notifiers)
+	- [Enemy Spawner: Instancing](#enemy-spawner-instancing)
+		- [Spawn Points](#spawn-points)
+		- [Randomizer](#randomizer)
+		- [Spawn the Enemy](#spawn-the-enemy)
+	- [Explosion](#explosion)
+		- [Ship and Enemies](#ship-and-enemies)
+	- [Score](#score)
+		- [Custom Signal](#custom-signal)
+		- [Setters \& Getters](#setters--getters)
+  
 ## Screenshots
 
 ![Picture](./docs/screencapture.jpg)
