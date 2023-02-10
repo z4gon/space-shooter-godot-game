@@ -26,3 +26,26 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
 - World
 - Ship
 - Enemy
+
+## Instancing
+
+- Get a reference to a `Scene`
+
+```py
+var Bullet : Resource = preload("res://Scenes/Bullet.tscn")
+```
+
+- Instantiate the resource.
+- Add it to the root node of the scene.
+- Set its position.
+  
+> NOTE: This is not ideal, an object pool should be used instead.
+
+```py
+func shoot():
+	var bullet = Bullet.instance()				# instantiate the scene
+	var rootNode = get_tree().current_scene 	# get the root node of the main scene
+	rootNode.add_child(bullet)					# add to the root node
+	bullet.global_position = global_position	# position in the same place as the ship
+	bullet.global_position.x += 10
+```
