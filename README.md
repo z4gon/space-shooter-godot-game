@@ -31,6 +31,7 @@ A basic game made in Godot, following the course: https://heartbeast-gamedev-sch
 	- [Font](#font)
 	- [Changing Scenes](#changing-scenes)
 	- [Autoload Singletons](#autoload-singletons)
+	- [Timers \& Yield](#timers--yield)
   
 ## Screenshots
 
@@ -316,3 +317,14 @@ func _on_Bullet_area_entered(enemy: Area2D):
 ## Autoload Singletons
 
 - Persisting elements across scenes changing, use `Project Settings > AutoLoad` and load the `Music.tsc` which will play the music across scenes.
+
+## Timers & Yield
+
+- Create timers on the fly by doing:
+
+```py
+func _on_Ship_player_died():
+	var timer = get_tree().create_timer(1) # after 1 sec
+	yield(timer, "timeout")
+	get_tree().change_scene("res://Scenes/Root/GameOverMenu.tscn")
+```
