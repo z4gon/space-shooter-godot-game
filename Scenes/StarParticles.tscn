@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="ParticlesMaterial" id=1]
+resource_local_to_scene = true
 emission_shape = 2
 emission_box_extents = Vector3( 1, 90, 1 )
 flag_disable_z = true

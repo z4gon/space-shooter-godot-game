@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/EnemySpawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Ship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/StarParticles.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Fonts/PixelFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Fonts/PixelFontSmall.tres" type="DynamicFont" id=5]
+
+[sub_resource type="ParticlesMaterial" id=1]
+resource_local_to_scene = true
+emission_shape = 2
+emission_box_extents = Vector3( 1, 90, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = -100.0
+initial_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
 
 [node name="World" type="Node" groups=["World"]]
 script = ExtResource( 1 )
@@ -18,6 +30,7 @@ __meta__ = {
 }
 
 [node name="StarParticles" parent="." instance=ExtResource( 4 )]
+process_material = SubResource( 1 )
 
 [node name="Ship" parent="." instance=ExtResource( 3 )]
 position = Vector2( 30, 90 )
